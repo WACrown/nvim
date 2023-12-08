@@ -1,16 +1,21 @@
 local default_plugins = {
-				{
-				"nvim-tree/nvim-tree.lua",
-  version = "*",
-  lazy = false,
-  dependencies = {
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
     "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+    require("nvim-tree").setup{}
+    end,
   },
-  config = function()
-    require("nvim-tree").setup {}
-  end,
-}
 
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    require("mason").setup(),
+  }
 
 }
 local lazy_config = {}
